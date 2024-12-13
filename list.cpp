@@ -6,9 +6,9 @@ DoublyLinkedList::~DoublyLinkedList() {
     clear();
 }
 
-void DoublyLinkedList::push_back(int value) {
+void DoublyLinkedList::push_back(std::string value) {
     Node* newNode = new Node(value);
-    if (!tail) { // Если список пуст
+    if (!tail) {
         head = tail = newNode;
     } else {
         tail->next = newNode;
@@ -17,25 +17,25 @@ void DoublyLinkedList::push_back(int value) {
     }
 }
 
-void DoublyLinkedList::remove(int value) {
+void DoublyLinkedList::remove(std::string value) {
     Node* current = head;
 
     while (current) {
         if (current->data == value) {
             if (current->prev) {
                 current->prev->next = current->next;
-            } else { // Удаляемый элемент - голова
+            } else {
                 head = current->next;
             }
 
             if (current->next) {
                 current->next->prev = current->prev;
-            } else { // Удаляемый элемент - хвост
+            } else {
                 tail = current->prev;
             }
 
             delete current;
-            return; // Завершаем после удаления первого совпадения
+            return;
         }
         current = current->next;
     }

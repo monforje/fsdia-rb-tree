@@ -2,14 +2,15 @@
 #define DOUBLY_LINKED_LIST_H
 
 #include <iostream>
+#include <string>
 
 // Узел списка
 struct Node {
-    int data;        // Данные узла
+    std::string data;        // Данные узла
     Node* prev;      // Указатель на предыдущий узел
     Node* next;      // Указатель на следующий узел
 
-    Node(int value) : data(value), prev(nullptr), next(nullptr) {}
+    Node(std::string value) : data(value), prev(nullptr), next(nullptr) {}
 };
 
 // Класс для работы с двусвязным списком
@@ -23,10 +24,10 @@ public:
     ~DoublyLinkedList();
 
     // Добавление элемента в конец
-    void push_back(int value);
+    void push_back(std::string value);
 
     // Удаление элемента по значению
-    void remove(int value);
+    void remove(std::string value);
 
     // Печать списка вперед
     void print_forward() const;

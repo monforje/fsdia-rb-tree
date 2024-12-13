@@ -3,20 +3,20 @@
 int main() {
     DoublyLinkedList dll;
 
-    dll.push_back(1);
-    dll.push_back(2);
-    dll.push_back(3);
-    dll.push_back(2);
-    dll.push_back(4);
+    dll.push_back("sosi");
+    dll.push_back("2");
+    dll.push_back("3");
+    dll.push_back("2");
+    dll.push_back("4");
 
     std::cout << "Initial list: ";
     dll.print_forward();
 
-    dll.remove(2);
+    dll.remove("2");
     std::cout << "After removing the first 2: ";
     dll.print_forward();
 
-    dll.remove(4);
+    dll.remove("4");
     std::cout << "After removing 4: ";
     dll.print_forward();
 
