@@ -2,14 +2,13 @@
 #define DOUBLY_LINKED_LIST_H
 
 #include <iostream>
-#include <string>
 
 struct Node {
-    std::string data;
+    int data;
     Node* prev;
     Node* next;
 
-    Node(std::string value) : data(value), prev(nullptr), next(nullptr) {}
+    Node(int value) : data(value), prev(nullptr), next(nullptr) {}
 };
 
 class DoublyLinkedList {
@@ -20,8 +19,8 @@ private:
 public:
     DoublyLinkedList();
     ~DoublyLinkedList();
-    void push_back(std::string value);
-    void remove(std::string value);
+    void push_back(int value);
+    void remove(int value);
     void print_forward() const;
     void clear();
 };

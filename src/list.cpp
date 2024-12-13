@@ -6,7 +6,7 @@ DoublyLinkedList::~DoublyLinkedList() {
     clear();
 }
 
-void DoublyLinkedList::push_back(std::string value) {
+void DoublyLinkedList::push_back(int value) {
     Node* newNode = new Node(value);
     if (!tail) {
         head = tail = newNode;
@@ -17,7 +17,7 @@ void DoublyLinkedList::push_back(std::string value) {
     }
 }
 
-void DoublyLinkedList::remove(std::string value) {
+void DoublyLinkedList::remove(int value) {
     Node* current = head;
 
     while (current) {
