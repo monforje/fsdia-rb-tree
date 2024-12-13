@@ -1,21 +1,4 @@
-# Имя исполняемого файла
-TARGET = list
-
-# Компилятор и флаги
-CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra -pedantic
-
-# Исходные файлы
-SRC = list.cpp
-
-# Правило сборки
-$(TARGET): $(SRC)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
-
-# Правило для очистки скомпилированных файлов
+all:
+	g++ list.cpp red-black.cpp -o main
 clean:
-	rm -f $(TARGET)
-
-# Запуск программы
-run: $(TARGET)
-	./$(TARGET)
+	rm -f main
