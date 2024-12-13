@@ -1,9 +1,9 @@
-#include "list.h"
+#include "src/list.h"
 
 int main() {
     DoublyLinkedList dll;
 
-    dll.push_back("sosi");
+    dll.push_back("1");
     dll.push_back("2");
     dll.push_back("3");
     dll.push_back("2");
