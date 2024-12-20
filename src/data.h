@@ -11,6 +11,7 @@ struct KEY {
 
 class ReadFromFile() {
     void file(const std::string& filename) {
+
     std::ifstream inputFile(filename);
     if (!inputFile) {
         std::cerr << "Ошибка открытия файла!" << std::endl;
@@ -36,6 +37,7 @@ class ReadFromFile() {
         } else {
             std::cerr << "Ошибка чтения строки: " << lineNumber << std::endl;
         }
+    
 
     }
 
