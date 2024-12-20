@@ -26,7 +26,7 @@ class ReadFromFile() {
         int series, number;
 
         if (!(iss >> series >> number)) {
-            std::cerr << "Ошибка формата в строке " << lineNumber << ": " << line << std::endl;
+            std::cerr << "Ошибка формат в строке " << lineNumber << ": " << line << std::endl;
             continue;
         }
 
