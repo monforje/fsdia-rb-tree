@@ -1,8 +1,9 @@
 #include <iostream>
 #include "src/list.h"
+#include "src/data.h"
 
 struct KEY {
-    int data;
+    Data data;
     DoublyLinkedList list;
 };
 
