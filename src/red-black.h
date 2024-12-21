@@ -4,17 +4,12 @@
 #include "src/list.h"
 #include "data.h"
 
-struct KEY {
-    int series;
-    int number;
-};
-
 enum COLOR { red, black };
 
 class RBtree {
 private:
     struct RBnode { 
-        KEY key;
+        Data key;
         COLOR color;
         RBnode* left;
         RBnode* right;
@@ -24,6 +19,20 @@ private:
         RBnode(const KEY& key, COLOR color) 
             : key(key), color(color), left(nullptr), right(nullptr), parent(nullptr) {}
     };
+
+public:
+    //Вставка
+    void insert_RBnode() {}; 
+    //Удаление максимаьлного слева
+    void delete_max_left() {};
+    //Поиск ключа
+    void search_RBnode() {};
+    //Печать дерева
+    void print_RBtree() {};
+    //Прямой обход дерева
+    void direct_bypass_RBtree() {};
 };
+
+
 
 #endif // RBTREE_H
