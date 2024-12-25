@@ -46,9 +46,6 @@ int main() {
     std::cout << "\nПрямой обход дерева:" << std::endl;
     tree.direct_bypass_RBtree();
 
-    std::cout << "Визуализация дерева:" << std::endl;
-    tree.visualizeTree();
-
     // Визуализация дерева
     tree.generateGraphviz("rb_tree.dot");
     std::cout << "Дерево сгенерировано в файле rb_tree.dot. Используйте Graphviz для визуализации." << std::endl;

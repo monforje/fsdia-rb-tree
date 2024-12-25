@@ -201,36 +201,6 @@ void RBtree::printHelper(RBnode* root, std::string indent, bool last) {
     }
 }
 
-void RBtree::visualizeTree() {
-    if (!root) {
-        std::cout << "Дерево пусто." << std::endl;
-        return;
-    }
-    std::queue<std::pair<RBnode*, int>> nodes;
-    int currentLevel = 0;
-
-    nodes.push({root, 0});
-    while (!nodes.empty()) {
-        auto [node, level] = nodes.front();
-        nodes.pop();
-
-        if (level > currentLevel) {
-            currentLevel = level;
-            std::cout << std::endl;
-        }
-
-        if (node) {
-            std::cout << "(" << node->key.data.series << ", " << node->key.data.number << ")"
-                      << (node->color == RED ? "[RED] " : "[BLACK] ");
-            nodes.push({node->left, level + 1});
-            nodes.push({node->right, level + 1});
-        } else {
-            std::cout << "(null) ";
-        }
-    }
-    std::cout << std::endl;
-}
-
 void RBtree::generateGraphviz(const std::string& filename) {
     std::ofstream file(filename);
     if (!file.is_open()) {
