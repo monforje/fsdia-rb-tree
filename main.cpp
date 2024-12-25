@@ -1,28 +1,59 @@
-#include "src/list.h"
+#include "src/red-black.h"
+#include "src/data.h"
+#include <iostream>
 
 int main() {
-    DoublyLinkedList dll;
+    // Чтение данных из файла
+    const std::string filename = "data.txt";
+    Data dataArray[SIZE];
+    int count = 0;
 
-    dll.push_back(1);
-    dll.push_back(2);
-    dll.push_back(3);
-    dll.push_back(2);
-    dll.push_back(4);
+    ReadFromFile reader;
+    reader.readFile(filename, dataArray, count);
 
-    std::cout << "Initial list: ";
-    dll.print_forward();
+    // Проверка, есть ли данные для обработки
+    if (count == 0) {
+        std::cerr << "Данные из файла не загружены. Программа завершена." << std::endl;
+        return 1;
+    }
 
-    dll.remove(2);
-    std::cout << "After removing the first 2: ";
-    dll.print_forward();
+    // Создание красно-черного дерева
+    RBtree tree;
 
-    dll.remove(4);
-    std::cout << "After removing 4: ";
-    dll.print_forward();
+    // Вставка данных в дерево
+    for (int i = 0; i < count; ++i) {
+        KEY key = {dataArray[i], DoublyLinkedList()};
+        tree.insert(key);
+    }
 
-    dll.clear();
-    std::cout << "After clearing the list: ";
-    dll.print_forward();
+    // Печать дерева
+    std::cout << "Дерево после заполнения данными:" << std::endl;
+    tree.print_RBtree();
+
+    // Пример поиска
+    std::cout << "\nПоиск первого ключа из файла:" << std::endl;
+    tree.search_RBnode({dataArray[0], DoublyLinkedList()});
+
+    // Удаление максимального слева
+    std::cout << "\nУдаление максимального слева:" << std::endl;
+    tree.delete_max_left();
+
+    // Печать дерева после удаления
+    std::cout << "\nДерево после удаления максимального слева:" << std::endl;
+    tree.print_RBtree();
+
+    // Прямой обход дерева
+    std::cout << "\nПрямой обход дерева:" << std::endl;
+    tree.direct_bypass_RBtree();
+
+    std::cout << "Визуализация дерева:" << std::endl;
+    tree.visualizeTree();
+
+    // Визуализация дерева
+    tree.generateGraphviz("rb_tree.dot");
+    std::cout << "Дерево сгенерировано в файле rb_tree.dot. Используйте Graphviz для визуализации." << std::endl;
+
+
 
     return 0;
 }

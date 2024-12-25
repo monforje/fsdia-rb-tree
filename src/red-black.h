@@ -1,38 +1,51 @@
 #ifndef RBTREE_H
 #define RBTREE_H
 
-#include "src/list.h"
+#include "list.h"
 #include "data.h"
+#include <iostream>
+#include <queue>
+#include <utility>
 
-enum COLOR { red, black };
+enum COLOR { RED, BLACK };
+
+struct KEY {
+    Data data;
+    DoublyLinkedList list;
+};
 
 class RBtree {
 private:
-    struct RBnode { 
-        Data key;
+    struct RBnode {
+        KEY key;
         COLOR color;
         RBnode* left;
         RBnode* right;
         RBnode* parent;
-        DoublyLinkedList list;
 
-        RBnode(const KEY& key, COLOR color) 
+        RBnode(const KEY& key, COLOR color)
             : key(key), color(color), left(nullptr), right(nullptr), parent(nullptr) {}
     };
 
+    RBnode* root;
+
+    void rotateLeft(RBnode*& node);
+    void rotateRight(RBnode*& node);
+    void fixInsert(RBnode*& node);
+    void printHelper(RBnode* root, std::string indent, bool last);
+    RBnode* findMin(RBnode* node);
+
 public:
-    //Вставка
-    void insert_RBnode() {}; 
-    //Удаление максимаьлного слева
-    void delete_max_left() {};
-    //Поиск ключа
-    void search_RBnode() {};
-    //Печать дерева
-    void print_RBtree() {};
-    //Прямой обход дерева
-    void direct_bypass_RBtree() {};
+    RBtree();
+    void insert(const KEY& key);
+    void delete_max_left();
+    void search_RBnode(const KEY& key);
+    void print_RBtree();
+    void direct_bypass_RBtree();
+    void printTree();
+    void visualizeTree(); // Визуализация дерева
+    void generateGraphviz(const std::string& filename);
+    void generateGraphvizHelper(RBnode* node, std::ofstream& file);
 };
 
-
-
-#endif // RBTREE_H
+#endif
