@@ -1,37 +1,38 @@
 #include "data.h"
 
-void readFile(const std::string& filename, Data* dataArray, int& count) {
-    std::ifstream inputFile(filename);
+void readFile(const string& filename, Pasport* arr, int& count) {
+    //Валидация
+    ifstream inputFile(filename);
     if (!inputFile) {
-        std::cerr << "Ошибка открытия файла!" << std::endl;
+        cerr << "Ошибка открытия файла!" << endl;
         return;
     }
 
-    std::string line;
+    string line;
     int lineNumber = 0;
     count = 0;
-
-    while (std::getline(inputFile, line)) {
+    //Считывание со строк
+    while (getline(inputFile, line)) {
         lineNumber++;
-        std::istringstream iss(line);
+        istringstream iss(line);
         int series, number;
 
         if (!(iss >> series >> number)) {
-            std::cerr << "Ошибка формата в строке " << lineNumber << ": " << line << std::endl;
+            cerr << "Ошибка формата в строке " << lineNumber << ": " << line << endl;
             continue;
         }
-
+        //Проверка на формат паспорта
         if ((series < 1000 || series > 9925) || (number < 100000 || number > 999999)) {
-            std::cerr << "Ошибка: Номер группы должен быть в диапазоне в строке: " << lineNumber << std::endl;
+            cerr << "Ошибка: Номер группы должен быть в диапазоне в строке: " << lineNumber << endl;
             continue;
         }
-
+        //Проверка на количество данных
         if (count < SIZE) {
-            dataArray[count].series = series;
-            dataArray[count].number = number;
+            arr[count].series = series;
+            arr[count].number = number;
             count++;
         } else {
-            std::cerr << "Размер массива превышен." << std::endl;
+            cerr << "Размер массива превышен." << endl;
             break;
         }
     }

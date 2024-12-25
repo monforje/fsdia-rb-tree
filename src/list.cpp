@@ -1,11 +1,11 @@
 #include "list.h"
 
 DoublyLinkedList::DoublyLinkedList() : head(nullptr), tail(nullptr) {}
-
+//Деструктор
 DoublyLinkedList::~DoublyLinkedList() {
     clear();
 }
-
+//Вставка
 void DoublyLinkedList::push_back(int value) {
     Node* newNode = new Node(value);
     if (!tail) {
@@ -16,7 +16,7 @@ void DoublyLinkedList::push_back(int value) {
         tail = newNode;
     }
 }
-
+//Удаление
 void DoublyLinkedList::remove(int value) {
     Node* current = head;
 
@@ -40,16 +40,16 @@ void DoublyLinkedList::remove(int value) {
         current = current->next;
     }
 }
-
+//Печать
 void DoublyLinkedList::print_forward() const {
     Node* current = head;
     while (current) {
-        std::cout << current->data << " ";
+        cout << current->data << " ";
         current = current->next;
     }
-    std::cout << std::endl;
+    cout << endl;
 }
-
+//Очистка
 void DoublyLinkedList::clear() {
     while (head) {
         Node* toDelete = head;

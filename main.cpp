@@ -1,14 +1,14 @@
 #include "src/data.h"
 
 int main() {
-    Data passports[SIZE];
+    Pasport passports[SIZE];
     int count = 0;
 
-    readFile("data.txt", passports, count);
+    readFile("src/data.txt", passports, count);
 
-    std::cout << "Считано записей: " << count << std::endl;
+    cout << "Считано записей: " << count << endl;
     for (int i = 0; i < count; i++) {
-        std::cout << "Серия: " << passports[i].series << ", Номер: " << passports[i].number << std::endl;
+        cout << "Серия: " << passports[i].series << ", Номер: " << passports[i].number << endl;
     }
 
     return 0;
