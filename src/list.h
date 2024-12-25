@@ -1,8 +1,9 @@
-#ifndef DOUBLY_LINKED_LIST_H
-#define DOUBLY_LINKED_LIST_H
+#ifndef LIST_H
+#define LIST_H
 
 #include <iostream>
-
+using namespace std;
+//Двусвязный список
 struct Node {
     int data;
     Node* prev;
@@ -19,9 +20,13 @@ private:
 public:
     DoublyLinkedList();
     ~DoublyLinkedList();
+    //Вставка
     void push_back(int value);
+    //Удаление
     void remove(int value);
+    //Печать
     void print_forward() const;
+    //Очистка
     void clear();
 };
 

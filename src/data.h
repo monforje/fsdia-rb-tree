@@ -5,17 +5,15 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-
-struct Data {
+using namespace std;
+//Паспорт
+struct Pasport {
     int series;
     int number;
 };
-
-const int SIZE = 100;
-
-class ReadFromFile {
-public:
-    void readFile(const std::string& filename, Data* dataArray, int& count);
-};
+//Размер массива = 20
+const int SIZE = 20;
+//Метод для чтения файла
+void readFile(const string& filename, Pasport* arr, int& count);
 
 #endif
