@@ -6,14 +6,17 @@
 #include <fstream>
 #include <sstream>
 using namespace std;
-//Паспорт
+
+// Структура для хранения данных паспорта
 struct Pasport {
-    int series;
-    int number;
+    int series; // Серия паспорта (4 цифры)
+    int number; // Номер паспорта (6 цифр)
 };
-//Размер массива = 20
+
+// Максимальный размер массива для хранения данных
 const int SIZE = 20;
-//Метод для чтения файла
+
+// Метод для чтения данных из файла в массив
 void readFile(const string& filename, Pasport* arr, int& count);
 
 #endif
