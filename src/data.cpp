@@ -1,6 +1,6 @@
 #include "data.h"
 
-void ReadFromFile::readFile(const std::string& filename, Data* dataArray, int& count) {
+void readFile(const std::string& filename, Data* dataArray, int& count) {
     std::ifstream inputFile(filename);
     if (!inputFile) {
         std::cerr << "Ошибка открытия файла!" << std::endl;
