@@ -1,11 +1,16 @@
 #include "list.h"
 
+using namespace List; // Используем пространство имен List
+
+// Конструктор
 DoublyLinkedList::DoublyLinkedList() : head(nullptr), tail(nullptr) {}
-//Деструктор
+
+// Деструктор
 DoublyLinkedList::~DoublyLinkedList() {
     clear();
 }
-//Вставка
+
+// Вставка в конец
 void DoublyLinkedList::push_back(int value) {
     Node* newNode = new Node(value);
     if (!tail) {
@@ -16,7 +21,8 @@ void DoublyLinkedList::push_back(int value) {
         tail = newNode;
     }
 }
-//Удаление
+
+// Удаление элемента
 void DoublyLinkedList::remove(int value) {
     Node* current = head;
 
@@ -40,16 +46,18 @@ void DoublyLinkedList::remove(int value) {
         current = current->next;
     }
 }
-//Печать
+
+// Печать списка в прямом направлении
 void DoublyLinkedList::print_forward() const {
     Node* current = head;
     while (current) {
-        cout << current->data << " ";
+        std::cout << current->data << " ";
         current = current->next;
     }
-    cout << endl;
+    std::cout << std::endl;
 }
-//Очистка
+
+// Очистка списка
 void DoublyLinkedList::clear() {
     while (head) {
         Node* toDelete = head;

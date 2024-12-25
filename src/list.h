@@ -3,7 +3,10 @@
 
 #include <iostream>
 using namespace std;
-//Двусвязный список
+
+namespace List {
+
+// Узел для списка
 struct Node {
     int data;
     Node* prev;
@@ -20,14 +23,13 @@ private:
 public:
     DoublyLinkedList();
     ~DoublyLinkedList();
-    //Вставка
+
     void push_back(int value);
-    //Удаление
     void remove(int value);
-    //Печать
     void print_forward() const;
-    //Очистка
     void clear();
 };
+
+} // namespace List
 
 #endif
